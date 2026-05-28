@@ -264,7 +264,7 @@ Cada tabla tiene código como #0220337, grilla 5x5 con columnas B I N G O, y el 
 Extrae TODAS las tablas y devuelve SOLO JSON sin markdown:
 {"tablas":[{"code":"0220337","grid":[[5,20,44,48,72],[8,21,31,49,65],[10,16,0,52,74],[12,17,35,59,73],[9,19,36,56,70]]}]}
 El 0 es el espacio libre. Devuelve todas las tablas.`;
-    const resp = await fetch("http://localhost:3001/api/messages", {
+    const resp = await fetch("/api/messages", {
       method:"POST", headers: { "Content-Type": "application/json", "x-api-key": API_KEY, "anthropic-version": "2023-06-01", "anthropic-dangerous-direct-browser-access": "true" },
       body: JSON.stringify({ model:CLAUDE_MODEL, max_tokens:4000, messages:[{ role:"user", content:[
         {type:"document",source:{type:"base64",media_type:"application/pdf",data:pdfBase64}},
